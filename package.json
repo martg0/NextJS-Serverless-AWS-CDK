@@ -1,0 +1,31 @@
+{
+  "name": "cdk",
+  "version": "0.1.0",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "cdk-diff-dev": "tsc && ENVIRONMENT=dev cdk diff --profile $npm_config_profile",
+    "cdk-diff-stg": "tsc && ENVIRONMENT=stg cdk diff --profile $npm_config_profile",
+    "cdk-diff-prd": "tsc && ENVIRONMENT=prd cdk diff --profile $npm_config_profile",
+    "cdk-deploy-dev": "tsc && ENVIRONMENT=dev cdk deploy --profile $npm_config_profile --require-approval=never",
+    "cdk-deploy-stg": "tsc && ENVIRONMENT=stg cdk deploy --profile $npm_config_profile --require-approval=never",
+    "cdk-deploy-prd": "tsc && ENVIRONMENT=prd cdk deploy --profile $npm_config_profile --require-approval=never"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "18.14.6",
+    "aws-cdk": "2.70.0",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.5"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.70.0",
+    "constructs": "^10.1.288",
+    "source-map-support": "^0.5.21"
+  }
+}

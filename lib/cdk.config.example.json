@@ -1,0 +1,82 @@
+{
+  "dev": {
+    "environment": "dev",
+    "applicationName": "testProject-nextjs",
+    "stackName": "testProject-nextjs-dev",
+    "stackDescription": "This is the stack for the Test project, development environment.",
+    "account": "1234567890",
+    "region": "us-east-1",
+
+    "assets": {
+      "bucketName": "testProject-nextjs-bucket-dev",
+      "filesPath": "../../../site/.open-next/assets/",
+      "autoDeleteObjects": true,
+      "logsBucketArn": ""
+    },
+
+    "cloudfront": {
+      "distributionId": "",
+      "sslCertArn": "",
+      "domain": ["example.com"],
+      "aliases": ["testProject-dev.example.com"]
+    },
+
+    "lambdaMiddlewareFunction": {
+      "functionName": "testProject-nextjs-middleware-lambda-dev",
+      "filesPath": "../../../site/.open-next/middleware-function/",
+      "memorySize": 128
+    },
+
+    "lambdaServerFunction": {
+      "functionName": "testProject-nextjs-server-lambda-dev",
+      "filesPath": "../../../site/.open-next/server-function/",
+      "memorySize": 2048
+    },
+
+    "lambdaImageOptimizationFunction": {
+      "functionName": "testProject-nextjs-images-lambda-dev",
+      "filesPath": "../../../site/.open-next/image-optimization-function/",
+      "memorySize": 1536
+    }
+  },
+  "stg": {
+    "environment": "stg",
+    "applicationName": "testProject-nextjs",
+    "stackName": "testProject-nextjs-bucket-stg",
+    "stackDescription": "This is the stack for the Test project, staging environment.",
+    "account": "1234567890",
+    "region": "us-east-1",
+
+    "assets": {
+      "bucketName": "testProject-nextjs-bucket-stg",
+      "filesPath": "../../../site/.open-next/assets/",
+      "autoDeleteObjects": true,
+      "logsBucketArn": ""
+    },
+
+    "cloudfront": {
+      "distributionId": "",
+      "sslCertArn": "",
+      "domain": ["example.com"],
+      "aliases": ["testProject-stg.example.com"]
+    },
+
+    "lambdaMiddlewareFunction": {
+      "functionName": "testProject-nextjs-middleware-lambda-stg",
+      "filesPath": "../../../site/.open-next/middleware-function/",
+      "memorySize": 128
+    },
+
+    "lambdaServerFunction": {
+      "functionName": "testProject-nextjs-server-lambda-stg",
+      "filesPath": "../../../site/.open-next/server-function/",
+      "memorySize": 2048
+    },
+
+    "lambdaImageOptimizationFunction": {
+      "functionName": "testProject-nextjs-images-lambda-stg",
+      "filesPath": "../../../site/.open-next/image-optimization-function/",
+      "memorySize": 1536
+    }
+  }
+}
