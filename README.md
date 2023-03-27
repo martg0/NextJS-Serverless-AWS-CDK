@@ -17,7 +17,7 @@ If you use different environment names, you will need to edit also the scripts l
 
 1. Your NextJS Project
 1. One or multiple AWS accounts. You will need to [`bootstrap`](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) each account first.
-1. Build your NextJS Project with open-next project <https://github.com/serverless-stack/open-next>. This will create a folder called `./open-next` under your root project folder. I execute the following command on the project root:
+1. Build your NextJS Project with [`open-next project`](https://github.com/serverless-stack/open-next). This will create a folder called `./open-next` under your root project folder. I execute the following command on the project root:
 
 ```bash
 npx open-next@latest build
