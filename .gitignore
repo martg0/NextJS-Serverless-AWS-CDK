@@ -51,3 +51,7 @@ site/node_modules
 
 
 cdk.config.json
+cdk.out
+*.js
+*.d.ts
+cdk.context.json
