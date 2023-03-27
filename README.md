@@ -39,7 +39,7 @@ To deploy the build to your AWS account, follow these steps:
 1. Clone this repository and rename the `cdk.config.example.json` file to `cdk.config.json`.
 1. Edit the configuration file to match your AWS accounts and preferred environment.
 1. Ensure that you update the file paths for each node in the config for assets, and the three lambdas pointing to the `.open-next` folder created containing the build.
-1. Run the following command to deploy to the `dev` environment (example provided):
+1. Run the following command to deploy to the `dev` environment:
 
 ```bash
 # This is an example to deploy to "dev" environment.
