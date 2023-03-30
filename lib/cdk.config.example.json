@@ -17,7 +17,7 @@
     "cloudfront": {
       "distributionId": "",
       "sslCertArn": "",
-      "domain": ["example.com"],
+      "domain": "example.com",
       "aliases": ["testProject-dev.example.com"]
     },
 
@@ -57,7 +57,7 @@
     "cloudfront": {
       "distributionId": "",
       "sslCertArn": "",
-      "domain": ["example.com"],
+      "domain": "example.com",
       "aliases": ["testProject-stg.example.com"]
     },
 
