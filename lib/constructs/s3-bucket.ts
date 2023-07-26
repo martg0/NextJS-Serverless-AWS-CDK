@@ -10,7 +10,11 @@ import { type EnvironmentVars } from "../types/config";
 export class S3Bucket extends Construct {
   public readonly bucket: s3.Bucket;
 
-  constructor(scope: Construct, id: string, props: s3.BucketProps & { environmentVars: EnvironmentVars }) {
+  constructor(
+    scope: Construct,
+    id: string,
+    props: s3.BucketProps & { environmentVars: EnvironmentVars }
+  ) {
     super(scope, id);
     const environmentVars = props.environmentVars;
 
@@ -28,12 +32,16 @@ export class S3Bucket extends Construct {
       autoDeleteObjects: environmentVars.assets.autoDeleteObjects,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
       bucketName: environmentVars.assets.bucketName,
-      accessControl: s3.BucketAccessControl.PUBLIC_READ,
+      //accessControl: s3.BucketAccessControl.PUBLIC_READ,
       //serverAccessLogsBucket: myExistingLogsBucket,
     });
 
     new s3deploy.BucketDeployment(this, "deploy-assets-on-bucket", {
-      sources: [s3deploy.Source.asset(path.join(__dirname, environmentVars.assets.filesPath))],
+      sources: [
+        s3deploy.Source.asset(
+          path.join(__dirname, environmentVars.assets.filesPath)
+        ),
+      ],
       destinationBucket: this.bucket,
       destinationKeyPrefix: "",
       prune: true,
