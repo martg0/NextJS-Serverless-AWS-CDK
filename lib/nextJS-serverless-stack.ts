@@ -2,7 +2,7 @@ import * as cdk from "aws-cdk-lib";
 import { type EnvironmentVars } from "./types/config";
 import { type Construct } from "constructs";
 import { S3Bucket } from "./constructs/s3-bucket";
-//import { LambdaFunctions } from "./constructs/lambda-functions";
+import { LambdaFunctions } from "./constructs/lambda-functions";
 import { CloudfrontDistribution } from "./constructs/cloudfront-distribution";
 import { CloudFrontTarget } from "aws-cdk-lib/aws-route53-targets";
 import * as Route53 from "aws-cdk-lib/aws-route53";
@@ -26,6 +26,16 @@ export class NextJsServerlessApp extends cdk.Stack {
       { environmentVars }
     );
 
+    // Create Functions
+    const myFunctions = new LambdaFunctions(
+      this,
+      `functions-${environmentVars.environment}`,
+      {
+        environmentVars,
+        myBucket: myBucket.bucket,
+      }
+    );
+
     // Create Distribution
     const myDistribution = new CloudfrontDistribution(
       this,
@@ -33,6 +43,9 @@ export class NextJsServerlessApp extends cdk.Stack {
       {
         environmentVars,
         myBucket: myBucket.bucket,
+        myServerFunction: myFunctions.myServerFunction,
+        myMiddlewareFunction: myFunctions.myMiddlewareFunction,
+        myImageFunction: myFunctions.myImageFunction,
       }
     );
 
